@@ -1,0 +1,110 @@
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+
+    <title>KEYpop</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+  </head>
+
+  <body>
+
+      <header>
+
+      </header>
+
+      <section>
+
+      </section>
+
+      <script>
+        const header = document.querySelector('header');
+        const section = document.querySelector('section');
+        const requestURL = 'pruebaproducto.json';
+        const request = new XMLHttpRequest();
+        request.open('GET', requestURL);
+        request.responseType = 'json';
+        request.send();
+
+        request.onload = function() {
+            const pruebaproductos = request.response;
+            populateHeader(pruebaproductos);
+            showMusic(pruebaproductos);
+        }
+
+        function populateHeader(jsonObj) {
+            const myH1 = document.createElement('h1');
+            myH1.textContent = jsonObj['nombreTienda'];
+            header.appendChild(myH1);
+
+        const myPara = document.createElement('h3');
+            myPara.textContent = jsonObj['descripcionTienda'];
+            header.appendChild(myPara);
+        }
+
+        function showMusic (jsonObj) {
+          const productos = jsonObj['productos'];
+          const productosLight = jsonObj['productosLight'];
+        
+        for (var a=1; a<=2;a++){
+          var midato=productos;
+          if (a==2){
+            midato=productosLight;
+          }
+
+        
+        for (var i = 0; i < midato.length; i++) {
+          console.log('mibucle');
+          const myArticle = document.createElement('article');
+          const myPara1 = document.createElement('img');
+          const myPara2 = document.createElement('b');
+          const myPara3 = document.createElement('b2');
+          const myPara4 = document.createElement('p');
+          const myPara5 = document.createElement('p2');
+          const myPara6 = document.createElement('fechaSalida');
+          const myPara7 = document.createElement('fechaInicio');
+          const myPara8 = document.createElement('fechaFinal');
+          const myPara9 = document.createElement('precio');
+          const myList = document.createElement('ul');
+        
+        myPara1.src = midato[i].imagen;
+        myPara2.textContent = midato[i].nombre;
+        myPara3.textContent = midato[i].artistaGrupo;
+        myPara4.textContent = midato[i].descripcion;
+        myPara6.textContent = 'Fecha de salida: ' + midato[i].fechaSalida;
+        myPara7.textContent = 'Fecha de inscripción: ' + midato[i].inicioInscripcion;
+        myPara8.textContent = 'Fecha finalización: ' + midato[i].finalInscripcion;
+        myPara9.textContent = midato[i].precio;
+
+        const contenido = midato[i].contenido;
+
+        for (var j = 0; j < contenido.length; j++) {
+            const listItem = document.createElement('li');
+            listItem.textContent = contenido[j];
+        myList.appendChild(listItem);
+        }
+
+        myArticle.appendChild(myPara1);
+        myArticle.appendChild(myPara2);
+        myArticle.appendChild(myPara3);
+        myArticle.appendChild(myPara4);
+        myArticle.appendChild(myPara5);
+        myArticle.appendChild(myPara6);
+        myArticle.appendChild(myPara7);
+        myArticle.appendChild(myPara8);
+        myArticle.appendChild(myList);
+        myArticle.appendChild(myPara9);
+
+        section.appendChild(myArticle);
+        }
+      }
+    }
+      
+      </script>
+  </body>
+</html>

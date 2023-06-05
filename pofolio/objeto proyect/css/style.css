@@ -1,0 +1,122 @@
+:root {
+    --pop: "Poppins";
+    --rosa: #f12f80;
+    --gris: #e7e7e7;
+}
+
+html {
+    background-color: #f2f2f2;
+    font-family: Calibri;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+}
+
+header {
+    background: var(--rosa);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 2rem;
+    font-family: var(--pop);
+    font-size: 1.5rem;
+    padding: 10rem 0;
+    width: 100%;
+}
+
+h1 {
+    line-height: 0;
+}
+
+h3 {
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 0.8rem;
+}
+
+section {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    background: var(--gris);
+    box-sizing: border-box;
+    width: 20rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    border-bottom: 0.5rem solid var(--rosa);
+    position: relative;
+    overflow: hidden;
+}
+
+article img {
+    width: 26rem!important;
+    border-radius: 1rem;
+}
+
+article b, article b2 {
+    font-family: var(--pop);
+    font-weight: normal;
+    font-size: 1.5rem;
+    text-align: center;
+    padding: 2rem 0;
+    line-height: 0;
+}
+
+article b2 {
+    padding: 0;
+    font-size: 1rem;
+    line-height: 0;
+}
+
+article p {
+    padding: 2rem;
+}
+
+article precio {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--rosa);
+    width: 100%;
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+}
+
+article ul {
+    margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+    section {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 5rem
+    }
+    article {
+        display: flex;
+        flex-direction: column;
+        background: var(--gris);
+        box-sizing: border-box;
+        width: 30rem;
+        padding: 2rem;
+        border-radius: 1rem;
+        border-bottom: 0.5rem solid var(--rosa);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    article img {
+        width: 26rem!important;
+        border-radius: 1rem;
+    }
+}
